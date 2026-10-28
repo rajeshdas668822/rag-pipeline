@@ -1,0 +1,251 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Scaffold the project structure and declare dependencies": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100034265
+      },
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100150348
+      }
+    ],
+    "2.1 Implement `src/config.py` with the frozen `Config` dataclass and `Config.load(overrides)`": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100155665
+      },
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100244327
+      }
+    ],
+    "2. Implement the Config object and Ollama endpoint resolution": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100244544
+      }
+    ],
+    "2.2 Write unit tests for endpoint resolution": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100250845
+      },
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100333258
+      }
+    ],
+    "3.1 Implement `src/ollama_client.py` with `OllamaClient`, `OllamaUnavailableError`, and `OllamaModelMissingError`": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100339907
+      },
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100575739
+      }
+    ],
+    "3.2 Write unit tests for `ensure_ready` with a mocked transport": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100583455
+      },
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100704920
+      }
+    ],
+    "3.3 Document native and Docker Ollama setup in the README": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100711988
+      },
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100804435
+      }
+    ],
+    "3. Implement the OllamaClient reachability and model-availability check": [
+      {
+        "executionId": "1f852094-1ece-480d-80f1-d914630bb9fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793100804509
+      }
+    ],
+    "4. Define the shared data types": [
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793114933289
+      },
+      {
+        "executionId": "ffe7cd1f-6d71-4e03-9cc6-6e5faef4271a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793117577270
+      },
+      {
+        "executionId": "ffe7cd1f-6d71-4e03-9cc6-6e5faef4271a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793117674668
+      }
+    ],
+    "5.1 Implement the document loader with multi-format extraction": [
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115083835
+      },
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115265690
+      }
+    ],
+    "5.4 Implement the chunker": [
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115273618
+      },
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115436902
+      }
+    ],
+    "5.6 Implement the Ollama embedder": [
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115444533
+      },
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115519284
+      }
+    ],
+    "5.8 Implement the dense retriever with the NumPy backend": [
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115534194
+      },
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115976246
+      }
+    ],
+    "5.12 Build and run `experiments/phase1_retrieval.py` (Phase 1 deliverable)": [
+      {
+        "executionId": "739a809e-b3d1-40d0-a137-e3bdaa85cf32",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793115991813
+      }
+    ],
+    "5. Phase 1 — Build the retrieval engine from scratch": [
+      {
+        "executionId": "ffe7cd1f-6d71-4e03-9cc6-6e5faef4271a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793117710026
+      },
+      {
+        "executionId": "ffe7cd1f-6d71-4e03-9cc6-6e5faef4271a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793117759611
+      }
+    ],
+    "6. Checkpoint — Phase 1 complete": [
+      {
+        "executionId": "ffe7cd1f-6d71-4e03-9cc6-6e5faef4271a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793117814229
+      }
+    ],
+    "7. Phase 2 — Cross-encoder reranking": [
+      {
+        "executionId": "328e59cf-6734-41eb-977d-de5803bc221a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793172491107
+      },
+      {
+        "executionId": "328e59cf-6734-41eb-977d-de5803bc221a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793173033010
+      },
+      {
+        "executionId": "625287ce-1f22-4566-968c-6e6ce6a600f0",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793173478632
+      }
+    ],
+    "8. Checkpoint — Phase 2 complete": [
+      {
+        "executionId": "328e59cf-6734-41eb-977d-de5803bc221a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793173037901
+      }
+    ],
+    "9. Phase 3 — Scientific baseline-vs-reranked evaluation": [
+      {
+        "executionId": "328e59cf-6734-41eb-977d-de5803bc221a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793173038364
+      }
+    ],
+    "10. Checkpoint — Phase 3 complete": [
+      {
+        "executionId": "328e59cf-6734-41eb-977d-de5803bc221a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793173038538
+      }
+    ],
+    "7.1 Implement the cross-encoder reranker": [
+      {
+        "executionId": "625287ce-1f22-4566-968c-6e6ce6a600f0",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793173521661
+      }
+    ],
+    "9.1 Implement the evaluation metrics module": [
+      {
+        "executionId": "c1102d25-0e11-4d01-b719-418e47c1bb98",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793174546520
+      },
+      {
+        "executionId": "c1102d25-0e11-4d01-b719-418e47c1bb98",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793174663118
+      }
+    ],
+    "9.5 Implement loading of the labelled evaluation dataset": [
+      {
+        "executionId": "c1102d25-0e11-4d01-b719-418e47c1bb98",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793174669514
+      },
+      {
+        "executionId": "c1102d25-0e11-4d01-b719-418e47c1bb98",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1793174830185
+      }
+    ]
+  }
+}

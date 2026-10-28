@@ -1,0 +1,40 @@
+{"query_id": "q001", "query": "What is retrieval-augmented generation?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q002", "query": "How does RAG combine retrieval with language model generation?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q003", "query": "Explain how grounding an LLM on retrieved context reduces hallucination.", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q004", "query": "What is reranking in a retrieval pipeline?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q005", "query": "Why reorder candidate documents after the first-stage retriever?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q006", "query": "What is a cross-encoder reranker and how does it score query-document pairs?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q007", "query": "How do dense embeddings represent text for semantic search?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q008", "query": "What are vector embeddings used for in retrieval?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q009", "query": "How is cosine similarity used to compare embedding vectors?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q010", "query": "What is a vector database and why is it needed for RAG?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q011", "query": "How does approximate nearest neighbour search speed up vector lookups?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q012", "query": "What is document chunking and why does chunk size matter?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q013", "query": "How does chunk overlap affect retrieval quality?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q014", "query": "Why split long documents into smaller passages before indexing?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q015", "query": "What evaluation metrics measure retrieval quality?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q016", "query": "How is recall at k computed for a retriever?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q017", "query": "What does nDCG measure in ranking evaluation?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q018", "query": "How is mean reciprocal rank interpreted?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q019", "query": "What is hybrid search combining lexical and semantic retrieval?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q020", "query": "How does BM25 keyword scoring differ from dense retrieval?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q021", "query": "What is reciprocal rank fusion for merging result lists?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q022", "query": "How should a RAG pipeline handle queries with no relevant documents?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q023", "query": "What is query expansion and how does it improve recall?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q024", "query": "How do you build a complete RAG pipeline from ingestion to answer generation?", "relevant_documents": ["Mastering RAG 2026_0", "README_0"], "graded_labels": {"Mastering RAG 2026_0": 3, "README_0": 2}}
+{"query_id": "q025", "query": "Where is the retrieval and reranking pipeline described, both the book and the project overview?", "relevant_documents": ["Mastering RAG 2026_0", "README_0"], "graded_labels": {"Mastering RAG 2026_0": 3, "README_0": 2}}
+{"query_id": "q026", "query": "What documents explain embeddings and how this lab uses them?", "relevant_documents": ["Mastering RAG 2026_0", "README_0"], "graded_labels": {"Mastering RAG 2026_0": 3, "README_0": 1}}
+{"query_id": "q027", "query": "Which sources cover reranking concepts and the lab's reranking experiments?", "relevant_documents": ["Mastering RAG 2026_0", "README_0"], "graded_labels": {"Mastering RAG 2026_0": 3, "README_0": 2}}
+{"query_id": "q028", "query": "What does this project do and how do I get started with it?", "relevant_documents": ["README_0"], "graded_labels": {"README_0": 3}}
+{"query_id": "q029", "query": "How do I install dependencies and run the experiments in this repository?", "relevant_documents": ["README_0"], "graded_labels": {"README_0": 3}}
+{"query_id": "q030", "query": "What is the directory layout of the RAG reranking lab?", "relevant_documents": ["README_0"], "graded_labels": {"README_0": 3}}
+{"query_id": "q031", "query": "How does the lab connect to Ollama for embeddings?", "relevant_documents": ["README_0"], "graded_labels": {"README_0": 2}}
+{"query_id": "q032", "query": "What techniques improve the precision of retrieved context?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q033", "query": "How can a reranking stage raise precision of the top results?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q034", "query": "What is the difference between a bi-encoder and a cross-encoder?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q035", "query": "How are large language models used to rerank passages?", "relevant_documents": ["Mastering RAG 2026_0"]}
+{"query_id": "q036", "query": "What is the capital of France?", "relevant_documents": []}
+{"query_id": "q037", "query": "How do I bake sourdough bread at home?", "relevant_documents": []}
+{"query_id": "q038", "query": "What is the best way to train for a marathon?", "relevant_documents": []}
+{"query_id": "q039", "query": "Who won the FIFA World Cup in 2018?", "relevant_documents": []}
+{"query_id": "q040", "query": "What are the rules of chess for castling?", "relevant_documents": []}

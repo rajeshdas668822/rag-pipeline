@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-reranking-lab"
+version = "0.1.0"
+description = "Local-first lab to measure whether reranking improves a RAG pipeline (no LangChain / LlamaIndex)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+# Core runtime dependencies. Everything runs locally: embeddings and answer
+# generation go through a locally-running Ollama instance; the cross-encoder
+# reranker runs locally via sentence-transformers / torch. No paid APIs.
+#
+# NOTE: LangChain and LlamaIndex are intentionally excluded. Component internals
+# (chunking, embedding, retrieval, reranking, generation, evaluation) are built
+# directly so each is exposed and independently verifiable. Do NOT add
+# `langchain`, `langchain-*`, `llama-index`, or `llamaindex` to any dependency
+# group in this project.
+dependencies = [
+    "numpy>=1.26,<3",
+    "pandas>=2.1",
+    "requests>=2.31",
+    "sentence-transformers>=3.0",
+    "torch>=2.2",
+    "rank-bm25>=0.2.2",
+    "pypdf>=4.2",
+]
+
+[project.optional-dependencies]
+# Development and test tooling.
+dev = [
+    "pytest>=8.0",
+    "hypothesis>=6.100",
+]
+# Optional, phase-gated stretch features:
+#   faiss-cpu -> alternative dense vector-search backend (Config.dense_backend="faiss")
+#   ragas     -> optional answer-quality evaluation in Phase 5 (Config.use_ragas=True)
+optional = [
+    "faiss-cpu>=1.8",
+    "ragas>=0.1",
+]
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
