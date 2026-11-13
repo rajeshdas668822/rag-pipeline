@@ -147,7 +147,7 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
   - [ ]* 9.6 Write unit tests for the evaluation-dataset loader
     - Cover a valid dataset plus each rejection case (duplicate query_id, empty query, unknown relevant doc id)
     - _Requirements: 9.1, 9.6_
-  - [ ] 9.7 Build and run `experiments/phase3_evaluation.py` (Phase 3 deliverable)
+  - [x] 9.7 Build and run `experiments/phase3_evaluation.py` (Phase 3 deliverable)
     - For each query obtain one initial candidate set, evaluate a Baseline (candidate set unchanged) and a Reranked (same set, cross-encoder applied) configuration over identical queries/documents/labels; error for a query whose two configs do not share an identical candidate set and report no comparison for it
     - Produce `baseline_results.csv`, `reranked_results.csv`, and `evaluation_summary.csv` (NDCG@5, Recall@5, Recall@50 for both configs, whether each metric changed, and an interpretation column documenting "NDCG@5 up / Recall@50 unchanged = reordering" and "Recall@5 up = relevant docs moved into top 5"); ensure identical metric values across repeated runs
     - Run the script to produce the three CSVs
@@ -157,19 +157,19 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 11. Phase 4 — Retrieval strategy and reranker comparison
-  - [ ] 11.1 Implement the BM25 retriever
+  - [x] 11.1 Implement the BM25 retriever
     - Implement `src/bm25_retriever.py` with `BM25Retriever` behind the shared `Retriever` interface; rank via `rank-bm25`, returning a ranked list of 1..k (k in 1..1000) and reporting `latency_ms`
     - _Requirements: 12.2_
   - [ ]* 11.2 Write unit tests for the BM25 retriever
     - Assert ranked ordering on a small keyword corpus and the top-k bound
     - _Requirements: 12.2_
-  - [ ] 11.3 Implement the hybrid retriever with RRF
+  - [x] 11.3 Implement the hybrid retriever with RRF
     - Implement `src/hybrid_retriever.py` with `HybridRetriever` behind the shared `Retriever` interface; fuse the dense and BM25 lists via RRF with k=60 (`1/(rrf_k + rank)`), never by adding raw cosine/BM25 scores; return top-k by descending fused score and report `latency_ms`
     - _Requirements: 12.3_
   - [ ]* 11.4 Write unit tests for the hybrid retriever
     - Assert RRF fusion against a hand-worked example with k=60
     - _Requirements: 12.3_
-  - [ ] 11.5 Implement the Ollama LLM reranker
+  - [x] 11.5 Implement the Ollama LLM reranker
     - Implement `src/ollama_llm_reranker.py` with `OllamaLLMReranker` behind the shared `Reranker` interface; prompt the instruct model with the same prompt and fixed 0–3 scale per candidate, parse responses to int 0..3, and on an unparseable response assign score 0, set `parse_failed=True`, and continue without aborting; return only received candidates sorted descending
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 17.4_
   - [ ]* 11.6 Write unit tests for the LLM reranker with a mocked client

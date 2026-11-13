@@ -169,13 +169,16 @@ class OllamaClient:
             )
         return [float(x) for x in response["embedding"]]
 
-    def chat(self, model: str, prompt: str, *, timeout_s: int) -> str:
+    def chat(
+        self, model: str, prompt: str, *, timeout_s: int, options: dict | None = None
+    ) -> str:
         """Send a single-prompt chat request and return the response text.
 
         Args:
             model: The chat/instruct model name.
             prompt: The user prompt.
             timeout_s: Per-call request timeout in seconds.
+            options: Optional Ollama model options (e.g. temperature, seed).
 
         Returns:
             The assistant message content as a string.
@@ -184,15 +187,14 @@ class OllamaClient:
             OllamaUnavailableError: If the endpoint cannot be reached.
         """
         client = OllamaClient(self._endpoint, timeout_s=timeout_s)
-        response = client._request(
-            "POST",
-            "/api/chat",
-            json={
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}],
-                "stream": False,
-            },
-        )
+        payload = {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "stream": False,
+        }
+        if options is not None:
+            payload["options"] = options
+        response = client._request("POST", "/api/chat", json=payload)
         if "message" not in response or "content" not in response["message"]:
             raise OllamaUnavailableError(
                 f"The Ollama Endpoint '{self._endpoint}' returned no message "

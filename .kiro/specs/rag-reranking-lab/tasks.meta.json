@@ -276,6 +276,54 @@
         "executionId": "6a1ead38-0f34-4e0c-82a7-562db3e0e228",
         "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
         "timestamp": 1794554236600
+      },
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794560178344
+      }
+    ],
+    "11.1 Implement the BM25 retriever": [
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794560186325
+      },
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794560264940
+      }
+    ],
+    "11.3 Implement the hybrid retriever with RRF": [
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794560265407
+      },
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794561529227
+      }
+    ],
+    "11.5 Implement the Ollama LLM reranker": [
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794561530419
+      },
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794562003554
+      }
+    ],
+    "11.7 Build and run `experiments/phase4_retrieval_comparison.py` (Phase 4 deliverable)": [
+      {
+        "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794562004663
       }
     ]
   }
