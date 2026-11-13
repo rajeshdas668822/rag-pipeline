@@ -32,6 +32,7 @@ from src.evaluation import Evaluation, MetricResult
 from src.evaluation_dataset import InvalidEvaluationRecordError, load_evaluation_queries
 from src.ollama_client import OllamaClient
 from src.ollama_embedder import OllamaEmbedder
+from src.embedding_cache import CachedEmbedder
 from src.rag_types import Chunk
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -54,7 +55,7 @@ INTERPRETATION_NOTE = (
 )
 
 
-def build_pipeline(config: Config, data_dir: str, chunk_size: int, chunk_overlap: int):
+def build_pipeline(config: Config, data_dir: str, chunk_size: int, chunk_overlap: int, use_cache: bool = True):
     """Build the Phase 1 pipeline and return (retriever, chunk_map)."""
     ollama_client = OllamaClient(endpoint=config.ollama_endpoint)
     ollama_client.ensure_ready([config.embedding_model])
@@ -71,8 +72,12 @@ def build_pipeline(config: Config, data_dir: str, chunk_size: int, chunk_overlap
     embedder = OllamaEmbedder(
         client=ollama_client, model=config.embedding_model, timeout_s=config.embed_timeout_s
     )
+    if use_cache:
+        embedder = CachedEmbedder(embedder)
     retriever = DenseRetriever(embedder=embedder, backend=NumpyBackend())
     retriever.index(chunks)
+    if use_cache:
+        logger.info("embeddings: %d cached, %d computed", embedder.hits, embedder.misses)
     return retriever, {c.chunk_id: c for c in chunks}
 
 
@@ -176,13 +181,14 @@ def main() -> int:
     p.add_argument("--data_dir", type=str, default="data")
     p.add_argument("--dataset", type=str, default="data/evaluation_queries.jsonl")
     p.add_argument("--out_dir", type=str, default="data")
+    p.add_argument("--no_cache", action="store_true", help="Bypass the on-disk embedding cache")
     p.add_argument("--repeat_check", action="store_true",
                    help="Run the evaluation twice and assert identical metrics (Req 11.6)")
     args = p.parse_args()
 
     config = Config.load()
     try:
-        retriever, chunk_map = build_pipeline(config, args.data_dir, args.chunk_size, args.chunk_overlap)
+        retriever, chunk_map = build_pipeline(config, args.data_dir, args.chunk_size, args.chunk_overlap, not args.no_cache)
     except InvalidChunkConfigError as exc:
         logger.error("Chunking failed: %s", exc)
         return 1

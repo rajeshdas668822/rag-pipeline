@@ -41,6 +41,7 @@ from src.dense_retriever import DenseRetriever, NumpyBackend
 from src.document_loader import DocumentLoader
 from src.ollama_client import OllamaClient
 from src.ollama_embedder import OllamaEmbedder
+from src.embedding_cache import CachedEmbedder
 from src.phase2_report import write_phase2_report
 from src.rag_types import Chunk, RetrievalResult
 
@@ -75,7 +76,7 @@ def validate_query(query: str) -> None:
         raise ValueError("Query must not exceed 2048 characters.")
 
 
-def build_pipeline(config: Config, data_dir: str, chunk_size: int, chunk_overlap: int):
+def build_pipeline(config: Config, data_dir: str, chunk_size: int, chunk_overlap: int, use_cache: bool = True):
     """Build the Phase 1 pipeline and return (retriever, chunk_map)."""
     ollama_client = OllamaClient(endpoint=config.ollama_endpoint)
     ollama_client.ensure_ready([config.embedding_model])
@@ -96,8 +97,12 @@ def build_pipeline(config: Config, data_dir: str, chunk_size: int, chunk_overlap
         model=config.embedding_model,
         timeout_s=config.embed_timeout_s,
     )
+    if use_cache:
+        embedder = CachedEmbedder(embedder)
     retriever = DenseRetriever(embedder=embedder, backend=NumpyBackend())
     retriever.index(chunks)
+    if use_cache:
+        logger.info("embeddings: %d cached, %d computed", embedder.hits, embedder.misses)
 
     chunk_map = {chunk.chunk_id: chunk for chunk in chunks}
     return retriever, chunk_map
@@ -127,6 +132,7 @@ def main() -> int:
     parser.add_argument("--chunk_size", type=int, default=512)
     parser.add_argument("--chunk_overlap", type=int, default=64)
     parser.add_argument("--data_dir", type=str, default="data")
+    parser.add_argument("--no_cache", action="store_true", help="Bypass the on-disk embedding cache")
     parser.add_argument(
         "--query_id", type=str, default="q1", help="query_id for the CSV report"
     )
@@ -169,7 +175,7 @@ def main() -> int:
     # Build the Phase 1 pipeline / candidate set.
     try:
         retriever, chunk_map = build_pipeline(
-            config, args.data_dir, args.chunk_size, args.chunk_overlap
+            config, args.data_dir, args.chunk_size, args.chunk_overlap, not args.no_cache
         )
     except InvalidChunkConfigError as exc:
         logger.error("Chunking failed: %s", exc)
