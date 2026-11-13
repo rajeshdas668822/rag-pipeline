@@ -30,6 +30,7 @@ from src.dense_retriever import DenseRetriever, NumpyBackend, RetrievalResult
 from src.document_loader import DocumentLoader
 from src.ollama_client import OllamaClient
 from src.ollama_embedder import OllamaEmbedder
+from src.embedding_cache import CachedEmbedder
 from src.chunker import Chunker, InvalidChunkConfigError
 from src.rag_types import Chunk
 
@@ -229,6 +230,11 @@ def main() -> None:
         default="data",
         help="Directory containing documents to index (default: 'data')"
     )
+    parser.add_argument(
+        "--no_cache",
+        action="store_true",
+        help="Bypass the on-disk embedding cache (.cache/embeddings.sqlite)"
+    )
 
     args = parser.parse_args()
 
@@ -291,6 +297,8 @@ def main() -> None:
             model=config.embedding_model,
             timeout_s=config.embed_timeout_s
         )
+        if not args.no_cache:
+            embedder = CachedEmbedder(embedder)
         print(f"  Embedding dimension: {embedder.dimension}")
     except Exception as e:
         print(f"  Embedding setup failed: {e}")
@@ -304,6 +312,8 @@ def main() -> None:
     try:
         retriever.index(chunks)
         print(f"  Indexed {len(chunks)} chunks")
+        if not args.no_cache:
+            print(f"  INFO embeddings: {embedder.hits} cached, {embedder.misses} computed")
     except Exception as e:
         print(f"  Indexing failed: {e}")
         sys.exit(1)
