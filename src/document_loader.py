@@ -23,7 +23,7 @@ __all__ = ["DocumentLoader", "UnsupportedFileTypeError", "ExtractionError", "Dup
 SUPPORTED_EXT: set[str] = {".pdf", ".md", ".txt", ".json", ".jsonl"}
 
 # Files in the data directory that are not part of the knowledge base.
-NON_CORPUS_FILENAMES: set[str] = {"README.md", "evaluation_queries.jsonl", "chunks_dump.jsonl"}
+NON_CORPUS_FILENAMES: set[str] = {"README.md", "evaluation_queries.jsonl", "chunks_dump.jsonl", "chunks_manifest.json"}
 
 
 class UnsupportedFileTypeError(ValueError):
@@ -112,6 +112,8 @@ class DocumentLoader:
             if file_path.is_file():
                 if file_path.name in NON_CORPUS_FILENAMES or fnmatch.fnmatch(file_path.name, "evaluation_queries*.jsonl"):
                     continue
+                if file_path.suffix.lower() == ".csv":
+                    continue  # generated reports, never corpus
                 try:
                     docs = self.load_file(str(file_path))
                     documents.extend(docs)

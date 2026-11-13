@@ -16,6 +16,8 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
+import json
 import logging
 import sys
 from dataclasses import asdict
@@ -53,6 +55,36 @@ INTERPRETATION_NOTE = (
     "NDCG@5 up with Recall@50 unchanged = reranker reordered the same candidate set. "
     "Recall@5 up = relevant docs moved into the top 5 (not discovered by the reranker)."
 )
+
+
+def compare_manifest(manifest, chunk_map, queries, chunk_size, chunk_overlap):
+    """Return (problems, mismatching_ids) comparing the manifest to the current chunks.
+
+    Checks chunk_size/overlap, chunk_count, and the sha256 of the current text of every
+    chunk id referenced by the dataset (relevant_documents and graded_labels).
+    """
+    problems = []
+    if manifest.get("chunk_size") != chunk_size or manifest.get("chunk_overlap") != chunk_overlap:
+        problems.append(f"chunk config differs: manifest {manifest.get('chunk_size')}/{manifest.get('chunk_overlap')}"
+                        f" vs current {chunk_size}/{chunk_overlap}")
+    if manifest.get("chunk_count") != len(chunk_map):
+        problems.append(f"chunk count differs: manifest {manifest.get('chunk_count')} vs current {len(chunk_map)}")
+    referenced = set()
+    for q in queries:
+        referenced.update(q.relevant_documents)
+        referenced.update((q.graded_labels or {}).keys())
+    expected = manifest.get("chunk_text_sha256", {})
+    mismatched = []
+    for cid in sorted(referenced):
+        chunk = chunk_map.get(cid)
+        if chunk is None or cid not in expected:
+            mismatched.append(cid)
+            continue
+        if hashlib.sha256(chunk.text.encode("utf-8")).hexdigest() != expected[cid]:
+            mismatched.append(cid)
+    if mismatched:
+        problems.append(f"{len(mismatched)} labelled chunk(s) have different text than when labelled")
+    return problems, mismatched
 
 
 def build_pipeline(config: Config, data_dir: str, chunk_size: int, chunk_overlap: int, use_cache: bool = True):
@@ -181,6 +213,9 @@ def main() -> int:
     p.add_argument("--data_dir", type=str, default="data")
     p.add_argument("--dataset", type=str, default="data/evaluation_queries.jsonl")
     p.add_argument("--out_dir", type=str, default="data")
+    p.add_argument("--manifest", type=str, default="data/chunks_manifest.json")
+    p.add_argument("--skip_manifest_check", action="store_true",
+                   help="Do not abort when the corpus differs from the one the labels were drafted on")
     p.add_argument("--no_cache", action="store_true", help="Bypass the on-disk embedding cache")
     p.add_argument("--repeat_check", action="store_true",
                    help="Run the evaluation twice and assert identical metrics (Req 11.6)")
@@ -204,6 +239,29 @@ def main() -> int:
             "Dataset invalid for the current chunk config (%s/%s); labels are chunk-level and "
             "depend on it. Detail: %s", args.chunk_size, args.chunk_overlap, exc)
         return 1
+
+    if not args.skip_manifest_check:
+        manifest_path = Path(args.manifest)
+        if not manifest_path.exists():
+            logger.warning("Corpus manifest %s not found; cannot verify the corpus matches the labels.", manifest_path)
+        else:
+            import pypdf
+            with open(manifest_path, encoding="utf-8") as mf:
+                manifest = json.load(mf)
+            problems, mismatched = compare_manifest(
+                manifest, chunk_map, queries, args.chunk_size, args.chunk_overlap)
+            if problems:
+                logger.error("Corpus drift: current chunks do not match the corpus the labels were drafted on.")
+                for problem in problems:
+                    logger.error("  - %s", problem)
+                logger.error("  manifest: %s chunks, pypdf %s; current: %d chunks, pypdf %s",
+                             manifest.get("chunk_count"), manifest.get("pypdf_version"),
+                             len(chunk_map), pypdf.__version__)
+                if mismatched:
+                    logger.error("  first mismatching ids: %s", mismatched[:5])
+                logger.error("Fix: use the same pypdf version and PDF as the manifest, or rerun "
+                             "experiments/dump_chunks.py and relabel. (Override: --skip_manifest_check)")
+                return 1
 
     try:
         reranker = CrossEncoderReranker(model_name=config.cross_encoder_model)
@@ -240,7 +298,8 @@ def main() -> int:
     for name, b, t in summary:
         logger.info("%-12s %10.4f %10.4f  %s", name, b, t, str(abs(t - b) > EPS).lower())
     logger.info("Recall@50 identical between configs (same candidate set): verified.")
-    logger.info(INTERPRETATION_NOTE)
+    for name, b, t in summary:
+        logger.info(interpret(name, b, t))
     logger.info("Wrote: %s, %s, %s", out_dir / "baseline_results.csv",
                 out_dir / "reranked_results.csv", out_dir / "evaluation_summary.csv")
 

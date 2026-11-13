@@ -97,7 +97,9 @@ class CrossEncoderReranker:
                 objects exposing ``chunk_id`` and ``text`` attributes.
         """
         if isinstance(chunks, dict):
-            self._texts = {str(cid): str(text) for cid, text in chunks.items()}
+            self._texts = {
+                str(cid): str(v.text if hasattr(v, "text") else v) for cid, v in chunks.items()
+            }
             return
         self._texts = {chunk.chunk_id: chunk.text for chunk in chunks}
 

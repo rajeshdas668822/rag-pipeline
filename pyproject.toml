@@ -26,7 +26,7 @@ dependencies = [
     "sentence-transformers>=3.0",
     "torch>=2.2",
     "rank-bm25>=0.2.2",
-    "pypdf>=4.2",
+    "pypdf==6.21.3",
 ]
 
 [project.optional-dependencies]
