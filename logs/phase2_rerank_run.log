@@ -1,58 +1,69 @@
-Ollama endpoint: http://localhost:11434
-Skipping file due to extraction error: data\evaluation_queries.jsonl: Record 0 missing 'id' field
-Query: "What is RAG"
-Mode: 20 | candidate set size: 20
-No device provided, using cpu
-HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+$ python experiments/phase3_evaluation.py
+Skipping unsupported file: data\phase2_report_20.csv
+Indexed 715 chunks (chunk_size=512, overlap=64)
 HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
 HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/modules.json "HTTP/1.1 404 Not Found"
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-No modules.json found for cross-encoder/ms-marco-MiniLM-L6-v2, initializing a new CrossEncoder model.
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/config.json "HTTP/1.1 307 Temporary Redirect"
-HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/config.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Fconfig.json=&etag=%2288bc4f74b33a2073abc9a66cb532b889448ac3ed%22 "HTTP/1.1 200 OK"
-HTTP Request: GET https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/config.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Fconfig.json=&etag=%2288bc4f74b33a2073abc9a66cb532b889448ac3ed%22 "HTTP/1.1 200 OK"
-config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 794/794 [00:00<00:00, 2.11MB/s]
-C:\Users\pabit\PycharmProjects\rag-pipeline\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\pabit\.cache\huggingface\hub\models--cross-encoder--ms-marco-MiniLM-L6-v2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
-To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-  warnings.warn(message)
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/adapter_config.json "HTTP/1.1 404 Not Found"
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/model.safetensors "HTTP/1.1 302 Found"
-C:\Users\pabit\PycharmProjects\rag-pipeline\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\pabit\.cache\huggingface\hub. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
-To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-  warnings.warn(message)
-HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/xet-read-token/233902d25c440f23af6f7d6e94d2946bac0bee0a "HTTP/1.1 200 OK"
-model.safetensors: downloading bytes: █████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 86.0MB, 7.15MB/s
-model.safetensors: reconstructing file: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 90.9MB / 90.9MB, 8.12MB/s
-Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 105/105 [00:00<00:00, 2337.17it/s]
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/processor_config.json "HTTP/1.1 404 Not Found"
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/preprocessor_config.json "HTTP/1.1 404 Not Found"
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer_config.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Ftokenizer_config.json=&etag=%22a2435fedfac32b9ad70f052d4f84007730cd3109%22 "HTTP/1.1 200 OK"
-HTTP Request: GET https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer_config.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Ftokenizer_config.json=&etag=%22a2435fedfac32b9ad70f052d4f84007730cd3109%22 "HTTP/1.1 200 OK"
-tokenizer_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.33k/1.33k [00:00<00:00, 1.99MB/s]
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 105/105 [00:00<00:00, 502.20it/s]
 HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
 HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/vocab.txt "HTTP/1.1 307 Temporary Redirect"
-HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/vocab.txt?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Fvocab.txt=&etag=%22fb140275c155a9c7c5a3b3e0e77a9e839594a938%22 "HTTP/1.1 200 OK"
-HTTP Request: GET https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/vocab.txt?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Fvocab.txt=&etag=%22fb140275c155a9c7c5a3b3e0e77a9e839594a938%22 "HTTP/1.1 200 OK"
-vocab.txt: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 232k/232k [00:00<00:00, 18.9MB/s]
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer.json "HTTP/1.1 307 Temporary Redirect"
-HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Ftokenizer.json=&etag=%22688882a79f44442ddc1f60d70334a7ff5df0fb47%22 "HTTP/1.1 200 OK"
-HTTP Request: GET https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/tokenizer.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Ftokenizer.json=&etag=%22688882a79f44442ddc1f60d70334a7ff5df0fb47%22 "HTTP/1.1 200 OK"
-tokenizer.json: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 711k/711k [00:00<00:00, 42.6MB/s]
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/added_tokens.json "HTTP/1.1 404 Not Found"
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
-HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/special_tokens_map.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Fspecial_tokens_map.json=&etag=%227520992f25914d962f0e2fd0e0566fc33d19ec59%22 "HTTP/1.1 200 OK"
-HTTP Request: GET https://huggingface.co/api/resolve-cache/models/cross-encoder/ms-marco-MiniLM-L6-v2/233902d25c440f23af6f7d6e94d2946bac0bee0a/special_tokens_map.json?%2Fcross-encoder%2Fms-marco-MiniLM-L6-v2%2Fresolve%2F233902d25c440f23af6f7d6e94d2946bac0bee0a%2Fspecial_tokens_map.json=&etag=%227520992f25914d962f0e2fd0e0566fc33d19ec59%22 "HTTP/1.1 200 OK"
-special_tokens_map.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 132/132 [00:00<00:00, 335kB/s]
-HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/chat_template.jinja "HTTP/1.1 404 Not Found"
-Batches: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.37it/s]
-Reranked top 5 (latency 733.50 ms):
-  pos 1 <- initial_rank 12 | Mastering RAG 2026_0_59 | rerank_score=1.5800 initial_score=0.5243
-  pos 2 <- initial_rank 13 | Mastering RAG 2026_0_66 | rerank_score=1.1095 initial_score=0.5219
-  pos 3 <- initial_rank 5 | Mastering RAG 2026_0_61 | rerank_score=0.7670 initial_score=0.5427
-  pos 4 <- initial_rank 11 | Mastering RAG 2026_0_11 | rerank_score=0.7357 initial_score=0.5266
-  pos 5 <- initial_rank 8 | Mastering RAG 2026_0_54 | rerank_score=0.6895 initial_score=0.5327
-Phase 2 CSV report written to: data\phase2_report_20.csv
+q001  ndcg@5 0.285 -> 0.523
+q002  ndcg@5 0.389 -> 0.491
+q003  ndcg@5 0.000 -> 0.000
+q004  ndcg@5 0.534 -> 0.474
+q005  ndcg@5 0.518 -> 0.255
+q006  ndcg@5 0.207 -> 0.000
+q007  ndcg@5 0.000 -> 0.219
+q008  ndcg@5 0.296 -> 0.187
+q009  ndcg@5 0.413 -> 0.413
+q010  ndcg@5 0.000 -> 0.255
+q011  ndcg@5 0.000 -> 0.554
+q012  ndcg@5 0.626 -> 0.352
+q013  ndcg@5 0.444 -> 0.352
+q014  ndcg@5 0.646 -> 0.352
+q015  ndcg@5 0.000 -> 0.000
+q016  ndcg@5 0.174 -> 0.107
+q017  ndcg@5 0.490 -> 0.572
+q018  ndcg@5 0.704 -> 0.626
+q019  ndcg@5 0.339 -> 0.214
+q020  ndcg@5 0.472 -> 0.172
+q021  ndcg@5 0.469 -> 0.296
+q022  ndcg@5 0.895 -> 0.477
+q023  ndcg@5 0.613 -> 0.651
+q024  ndcg@5 0.299 -> 0.204
+q025  ndcg@5 0.000 -> 0.240
+q026  ndcg@5 0.502 -> 0.376
+q027  ndcg@5 0.576 -> 0.451
+q028  ndcg@5 0.810 -> 0.525
+q029  ndcg@5 0.332 -> 0.096
+q030  ndcg@5 0.523 -> 0.360
+q031  ndcg@5 0.710 -> 0.518
+q032  ndcg@5 0.834 -> 0.350
+q033  ndcg@5 0.617 -> 0.408
+q034  ndcg@5 0.000 -> 0.278
+q035  ndcg@5 0.000 -> 0.416
+q036  ndcg@5 0.679 -> 0.672
+q037  ndcg@5 0.592 -> 0.320
+q038  ndcg@5 0.227 -> 0.585
+q039  ndcg@5 0.264 -> 0.000
+q040  ndcg@5 0.000 -> 0.214
+q041  ndcg@5 0.491 -> 0.146
+q042  ndcg@5 0.000 -> 0.246
+q043  ndcg@5 0.000 -> 0.219
+q044  ndcg@5 0.397 -> 0.479
+q045  ndcg@5 0.000 -> 0.000
+q046  ndcg@5 0.000 -> 0.000
+q047  ndcg@5 0.000 -> 0.000
+q048  ndcg@5 0.000 -> 0.000
+
+Summary over 44 queries with answers (4 no-answer queries excluded from averages)
+metric         baseline   reranked  changed
+NDCG@5           0.3720     0.3328  true
+Recall@5         0.4220     0.4837  true
+Recall@50        0.8977     0.8977  false
+Precision@5      0.2455     0.2773  true
+MRR@10           0.4917     0.3667  true
+Recall@50 identical between configs (same candidate set): verified.
+NDCG@5 up with Recall@50 unchanged = reranker reordered the same candidate set. Recall@5 up = relevant docs moved into the top 5 (not discovered by the reranker).
+Wrote: data\baseline_results.csv, data\reranked_results.csv, data\evaluation_summary.csv
