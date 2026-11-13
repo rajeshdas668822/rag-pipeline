@@ -7,6 +7,7 @@ unsupported formats, empty files, and duplicate document IDs.
 
 from __future__ import annotations
 
+import fnmatch
 import json
 import os
 from pathlib import Path
@@ -20,6 +21,9 @@ from .rag_types import Document
 __all__ = ["DocumentLoader", "UnsupportedFileTypeError", "ExtractionError", "DuplicateDocumentIdError"]
 
 SUPPORTED_EXT: set[str] = {".pdf", ".md", ".txt", ".json", ".jsonl"}
+
+# Files in the data directory that are not part of the knowledge base.
+NON_CORPUS_FILENAMES: set[str] = {"README.md", "evaluation_queries.jsonl", "chunks_dump.jsonl"}
 
 
 class UnsupportedFileTypeError(ValueError):
@@ -106,6 +110,8 @@ class DocumentLoader:
         documents: list[Document] = []
         for file_path in sorted(data_path.iterdir()):
             if file_path.is_file():
+                if file_path.name in NON_CORPUS_FILENAMES or fnmatch.fnmatch(file_path.name, "evaluation_queries*.jsonl"):
+                    continue
                 try:
                     docs = self.load_file(str(file_path))
                     documents.extend(docs)

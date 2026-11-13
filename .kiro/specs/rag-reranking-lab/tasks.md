@@ -94,8 +94,8 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
 - [x] 6. Checkpoint — Phase 1 complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 7. Phase 2 — Cross-encoder reranking
-  - [ ] 7.1 Implement the cross-encoder reranker
+- [x] 7. Phase 2 — Cross-encoder reranking
+  - [x] 7.1 Implement the cross-encoder reranker
     - Implement `src/cross_encoder_reranker.py` with the `Reranker` protocol, `RerankOutput`, `CrossEncoderReranker`, `RerankerError`, and `ModelLoadError`; load `cross-encoder/ms-marco-MiniLM-L6-v2` locally via Sentence Transformers (no Ollama, no paid API), raising `ModelLoadError` with no results on load failure
     - Build exactly one query-doc pair and one score per candidate; sort by descending score with stable tie order; return `min(k, len)` when k given; reject k<1 or non-int; empty candidates → empty result with no error; treat scores as raw comparison values, not probabilities; report `latency_ms`
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9_
@@ -111,10 +111,10 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
   - [ ]* 7.5 Write property test — empty candidate list handled by the reranker
     - **Property 6: An empty candidate list is handled without error**
     - **Validates: Requirements 7.8, 5.5, 10.6** — an empty candidate set yields an empty result with no exception
-  - [ ] 7.6 Implement the Phase 2 CSV report writer
+  - [x] 7.6 Implement the Phase 2 CSV report writer
     - Write a per-candidate-per-query CSV with fields `query_id, document_id, initial_rank, initial_similarity_score, rerank_score, reranked_position, is_relevant`, where `is_relevant` comes from manual labels and is never derived from reranker scores; report the written file path
     - _Requirements: 8.3, 8.4, 8.6_
-  - [ ] 7.7 Build and run `experiments/phase2_reranking.py` (Phase 2 deliverable)
+  - [x] 7.7 Build and run `experiments/phase2_reranking.py` (Phase 2 deliverable)
     - Take the Phase 1 candidate set, apply `CrossEncoderReranker.rerank(query, candidates, k=5)`, return the top-5 reranked documents, and record every candidate's before/after position pairing and score pairing
     - Support experiments (a) initial-only, (b) retrieve/rerank 20, (c) 50, (d) 100, (e) reworded query, (f) inserted irrelevant document; record a relevant doc absent from the candidate set as absent from both candidate set and reranked results; on an empty/unavailable candidate set return a descriptive error and no report
     - Run the script to produce the Phase 2 CSV report

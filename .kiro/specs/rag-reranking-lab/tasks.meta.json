@@ -193,6 +193,11 @@
         "executionId": "625287ce-1f22-4566-968c-6e6ce6a600f0",
         "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
         "timestamp": 1793173478632
+      },
+      {
+        "executionId": "6a1ead38-0f34-4e0c-82a7-562db3e0e228",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794554222012
       }
     ],
     "8. Checkpoint — Phase 2 complete": [
@@ -221,6 +226,11 @@
         "executionId": "625287ce-1f22-4566-968c-6e6ce6a600f0",
         "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
         "timestamp": 1793173521661
+      },
+      {
+        "executionId": "6a1ead38-0f34-4e0c-82a7-562db3e0e228",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794554220234
       }
     ],
     "9.1 Implement the evaluation metrics module": [
@@ -245,6 +255,27 @@
         "executionId": "c1102d25-0e11-4d01-b719-418e47c1bb98",
         "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
         "timestamp": 1793174830185
+      }
+    ],
+    "7.6 Implement the Phase 2 CSV report writer": [
+      {
+        "executionId": "6a1ead38-0f34-4e0c-82a7-562db3e0e228",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794554221853
+      }
+    ],
+    "7.7 Build and run `experiments/phase2_reranking.py` (Phase 2 deliverable)": [
+      {
+        "executionId": "6a1ead38-0f34-4e0c-82a7-562db3e0e228",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794554221953
+      }
+    ],
+    "9.7 Build and run `experiments/phase3_evaluation.py` (Phase 3 deliverable)": [
+      {
+        "executionId": "6a1ead38-0f34-4e0c-82a7-562db3e0e228",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794554236600
       }
     ]
   }
