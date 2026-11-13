@@ -1,0 +1,91 @@
+$ uv run python experiments/phase4_retrieval_comparison.py --skip_manifest_check --llm_queries 5
+embeddings: 715 cached, 0 computed
+Indexed 715 chunks (chunk_size=512, overlap=64)
+HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+HTTP Request: HEAD https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2/resolve/233902d25c440f23af6f7d6e94d2946bac0bee0a/modules.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 105/105 [00:00<00:00, 2145.37it/s]
+HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+HTTP Request: GET https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+q001  ndcg@5 dense=0.285  bm25=0.000  dense+cross_encoder=0.449  hybrid=0.000  hybrid+cross_encoder=0.449
+q002  ndcg@5 dense=0.389  bm25=0.411  dense+cross_encoder=0.411  hybrid=0.389  hybrid+cross_encoder=0.411
+q003  ndcg@5 dense=0.000  bm25=0.352  dense+cross_encoder=0.000  hybrid=0.000  hybrid+cross_encoder=0.352
+q004  ndcg@5 dense=0.534  bm25=0.352  dense+cross_encoder=0.538  hybrid=0.352  hybrid+cross_encoder=0.538
+q005  ndcg@5 dense=0.518  bm25=0.000  dense+cross_encoder=0.474  hybrid=0.474  hybrid+cross_encoder=0.474
+q006  ndcg@5 dense=0.207  bm25=0.160  dense+cross_encoder=0.261  hybrid=0.207  hybrid+cross_encoder=0.261
+q007  ndcg@5 dense=0.000  bm25=0.255  dense+cross_encoder=0.255  hybrid=0.000  hybrid+cross_encoder=0.255
+q008  ndcg@5 dense=0.296  bm25=0.148  dense+cross_encoder=0.187  hybrid=0.187  hybrid+cross_encoder=0.187
+q009  ndcg@5 dense=0.413  bm25=0.000  dense+cross_encoder=0.413  hybrid=0.356  hybrid+cross_encoder=0.413
+q010  ndcg@5 dense=0.000  bm25=0.321  dense+cross_encoder=0.467  hybrid=0.467  hybrid+cross_encoder=0.453
+q011  ndcg@5 dense=0.000  bm25=0.202  dense+cross_encoder=0.538  hybrid=0.538  hybrid+cross_encoder=0.538
+q012  ndcg@5 dense=0.626  bm25=0.303  dense+cross_encoder=0.626  hybrid=0.444  hybrid+cross_encoder=0.626
+q013  ndcg@5 dense=0.444  bm25=0.352  dense+cross_encoder=0.444  hybrid=0.444  hybrid+cross_encoder=0.444
+q014  ndcg@5 dense=0.646  bm25=0.352  dense+cross_encoder=0.352  hybrid=0.646  hybrid+cross_encoder=0.352
+q015  ndcg@5 dense=0.000  bm25=0.237  dense+cross_encoder=0.000  hybrid=0.000  hybrid+cross_encoder=0.387
+q016  ndcg@5 dense=0.174  bm25=0.492  dense+cross_encoder=0.160  hybrid=0.454  hybrid+cross_encoder=0.160
+q017  ndcg@5 dense=0.490  bm25=0.211  dense+cross_encoder=0.636  hybrid=0.572  hybrid+cross_encoder=0.636
+q018  ndcg@5 dense=0.704  bm25=0.626  dense+cross_encoder=0.885  hybrid=0.906  hybrid+cross_encoder=0.885
+q019  ndcg@5 dense=0.339  bm25=0.343  dense+cross_encoder=0.411  hybrid=0.339  hybrid+cross_encoder=0.411
+q020  ndcg@5 dense=0.472  bm25=0.339  dense+cross_encoder=0.444  hybrid=0.408  hybrid+cross_encoder=0.444
+q021  ndcg@5 dense=0.469  bm25=0.296  dense+cross_encoder=0.469  hybrid=0.469  hybrid+cross_encoder=0.296
+q022  ndcg@5 dense=0.895  bm25=0.000  dense+cross_encoder=0.397  hybrid=0.454  hybrid+cross_encoder=0.397
+q023  ndcg@5 dense=0.613  bm25=0.651  dense+cross_encoder=0.651  hybrid=0.877  hybrid+cross_encoder=0.651
+q024  ndcg@5 dense=0.299  bm25=0.000  dense+cross_encoder=0.421  hybrid=0.388  hybrid+cross_encoder=0.421
+q025  ndcg@5 dense=0.000  bm25=0.240  dense+cross_encoder=0.485  hybrid=0.000  hybrid+cross_encoder=0.485
+q026  ndcg@5 dense=0.502  bm25=0.244  dense+cross_encoder=0.502  hybrid=0.479  hybrid+cross_encoder=0.502
+q027  ndcg@5 dense=0.576  bm25=0.000  dense+cross_encoder=0.474  hybrid=0.000  hybrid+cross_encoder=0.474
+q028  ndcg@5 dense=0.810  bm25=0.360  dense+cross_encoder=0.626  hybrid=0.760  hybrid+cross_encoder=0.626
+q029  ndcg@5 dense=0.332  bm25=0.096  dense+cross_encoder=0.282  hybrid=0.439  hybrid+cross_encoder=0.282
+q030  ndcg@5 dense=0.523  bm25=0.285  dense+cross_encoder=0.523  hybrid=0.523  hybrid+cross_encoder=0.523
+q031  ndcg@5 dense=0.710  bm25=0.722  dense+cross_encoder=0.688  hybrid=0.710  hybrid+cross_encoder=0.688
+q032  ndcg@5 dense=0.834  bm25=0.358  dense+cross_encoder=0.834  hybrid=0.772  hybrid+cross_encoder=0.834
+q033  ndcg@5 dense=0.617  bm25=0.502  dense+cross_encoder=0.395  hybrid=0.502  hybrid+cross_encoder=0.395
+q034  ndcg@5 dense=0.000  bm25=0.358  dense+cross_encoder=0.493  hybrid=0.240  hybrid+cross_encoder=0.493
+q035  ndcg@5 dense=0.000  bm25=0.255  dense+cross_encoder=0.219  hybrid=0.540  hybrid+cross_encoder=0.197
+q036  ndcg@5 dense=0.679  bm25=0.672  dense+cross_encoder=0.707  hybrid=0.876  hybrid+cross_encoder=0.707
+q037  ndcg@5 dense=0.592  bm25=0.000  dense+cross_encoder=0.320  hybrid=0.320  hybrid+cross_encoder=0.320
+q038  ndcg@5 dense=0.227  bm25=0.222  dense+cross_encoder=0.644  hybrid=0.222  hybrid+cross_encoder=0.644
+q039  ndcg@5 dense=0.264  bm25=0.000  dense+cross_encoder=0.000  hybrid=0.000  hybrid+cross_encoder=0.000
+q040  ndcg@5 dense=0.000  bm25=0.000  dense+cross_encoder=0.491  hybrid=0.000  hybrid+cross_encoder=0.491
+q041  ndcg@5 dense=0.491  bm25=0.214  dense+cross_encoder=0.559  hybrid=0.469  hybrid+cross_encoder=0.559
+q042  ndcg@5 dense=0.000  bm25=0.000  dense+cross_encoder=0.246  hybrid=0.190  hybrid+cross_encoder=0.221
+q043  ndcg@5 dense=0.000  bm25=0.000  dense+cross_encoder=0.255  hybrid=0.219  hybrid+cross_encoder=0.255
+q044  ndcg@5 dense=0.397  bm25=0.397  dense+cross_encoder=0.479  hybrid=0.397  hybrid+cross_encoder=0.479
+q045 (no-answer)  ndcg@5 dense=0.000  bm25=0.000  dense+cross_encoder=0.000  hybrid=0.000  hybrid+cross_encoder=0.000
+q046 (no-answer)  ndcg@5 dense=0.000  bm25=0.000  dense+cross_encoder=0.000  hybrid=0.000  hybrid+cross_encoder=0.000
+q047 (no-answer)  ndcg@5 dense=0.000  bm25=0.000  dense+cross_encoder=0.000  hybrid=0.000  hybrid+cross_encoder=0.000
+q048 (no-answer)  ndcg@5 dense=0.000  bm25=0.000  dense+cross_encoder=0.000  hybrid=0.000  hybrid+cross_encoder=0.000
+Part B: 5 queries x 20 candidates x 3 runs = ~300 model evaluations per reranker
+  LLM runtime estimate: 300 calls; at 1-3 s/call on CPU that is roughly 5-15 minutes (measure the first query to refine)
+[1/5] q001: reranking 20 candidates
+[2/5] q002: reranking 20 candidates
+[3/5] q003: reranking 20 candidates
+[4/5] q004: reranking 20 candidates
+[5/5] q005: reranking 20 candidates
+
+Part A: 44 answerable queries scored per config (4 no-answer queries excluded from averages)
+config                 scored failed  Recall@5  Recall@50  Precision@5   MRR@10   NDCG@5    retr_ms rerank_ms
+dense                      44      0    0.4220     0.8977       0.2455   0.4917   0.3720        2.1       0.0
+bm25                       44      0    0.3777     0.8004       0.2136   0.3003   0.2574        5.9       0.0
+dense+cross_encoder        44      0    0.5640     0.8977       0.3273   0.4851   0.4343        2.1    1779.2
+hybrid                     44      0    0.4814     0.9027       0.2818   0.4744   0.3870        7.6       0.0
+hybrid+cross_encoder       44      0    0.5867     0.9027       0.3364   0.4904   0.4458        7.6    1770.9
+Recall@50 identical for dense vs dense+cross_encoder and hybrid vs hybrid+cross_encoder: verified.
+Best Recall@5: hybrid+cross_encoder (0.5867)
+Best Recall@50: hybrid = hybrid+cross_encoder (0.9027)
+Best Precision@5: hybrid+cross_encoder (0.3364)
+Best MRR@10: dense (0.4917)
+Best NDCG@5: hybrid+cross_encoder (0.4458)
+Hybrid Recall@50 is 0.0049 above dense: retrieval found more relevant docs (a retrieval gain, not a reranking reorder).
+dense+cross_encoder vs dense: NDCG@5 +0.0623, Recall@5 +0.1420, Recall@50 unchanged (same candidates; any gain is reordering).
+hybrid+cross_encoder vs hybrid: NDCG@5 +0.0588, Recall@5 +0.1053, Recall@50 unchanged (same candidates; any gain is reordering).
+
+Part B: reranker comparison on the top 20 of 'hybrid' candidates (memory: this process only; excludes the Ollama server process)
+reranker         NDCG@5   MRR@10    preR@50    rerank_ms   evals   parse_f tracemalloc  rss_d_mb top5_same  jaccard
+cross_encoder    0.4447   0.3667     0.7667        788.6     300         0       0.2MB       n/a   100.00%    1.000
+llm              0.4963   0.4500     0.7667     231705.3     300         0       0.0MB       n/a   100.00%    1.000
+Pre-rerank Recall@50 identical for both rerankers (same candidates): verified.
+LLM scored 0.0516 higher NDCG@5 than the cross-encoder on this sample (n=5 queries; small sample, treat the LLM reranker as experimental).
+Cost: mean rerank latency cross-encoder 788.6 ms vs LLM 231705.3 ms per query; LLM parse failures: 0.
+Consistency over 3 runs: top-5 identical for 100.00% (cross-encoder) vs 100.00% (LLM) of queries; mean Jaccard 1.000 vs 1.000.
+Memory (this process only; excludes the Ollama server process) is not comparable for the LLM, which runs inside Ollama.
+Wrote: data\phase4_retrieval_comparison.csv, data\phase4_per_query.csv, data\phase4_reranker_comparison.csv, data\phase4_failures.csv
