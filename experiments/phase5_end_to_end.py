@@ -273,10 +273,17 @@ def write_phase5_outputs(out_dir, results, failures, summary):
                 "config": r["config"],
                 "answer": r["answer"],
                 "insufficient_context": str(r["insufficient_context"]).lower(),
-                "|".join(r["citations"]),
-                r["generation_ms"],
-                m.recall_at_5, m.recall_at_50, m.precision_at_5, m.mrr_at_10, m.ndcg_at_5,
-                ge["correctness"], ge["faithfulness"], ge["context_relevance"], ge["citation_accuracy"],
+                "citations": "|".join(r["citations"]),
+                "generation_ms": r["generation_ms"],
+                "recall_at_5": m.recall_at_5,
+                "recall_at_50": m.recall_at_50,
+                "precision_at_5": m.precision_at_5,
+                "mrr_at_10": m.mrr_at_10,
+                "ndcg_at_5": m.ndcg_at_5,
+                "correctness": ge["correctness"],
+                "faithfulness": ge["faithfulness"],
+                "context_relevance": ge["context_relevance"],
+                "citation_accuracy": ge["citation_accuracy"],
             })
 
     # Summary
