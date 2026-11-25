@@ -279,3 +279,194 @@ python experiments/phase5_end_to_end.py
 ## Reranking
 
 The cross-encoder reranker (`cross-encoder/ms-marco-MiniLM-L6-v2`) is optional. If it fails to load, the service continues with retrieval-only functionality.
+
+## Running on a Different Machine
+
+This section covers deploying the RAG pipeline on a remote machine (e.g., AWS EC2, distant server) where Ollama, the backend, and GUI may run on separate machines or require network access.
+
+### Prerequisites
+
+- **Docker installed** on the target machine (if using Docker for Ollama)
+- **Ollama models available** on the remote machine (`embeddinggemma`, `qwen2.5:3b`)
+- **Network access** between the GUI, backend, and Ollama machines (if distributed)
+- **Python 3.11+** if running experiments locally without Docker
+
+### Setup Scenarios
+
+#### Scenario 1: All Services on One Remote Machine
+
+This is the simplest remote setup—everything runs on the same server.
+
+1. **Copy the repository** to the remote machine:
+   ```bash
+   git clone <your-repo-url> rag-pipeline
+   cd rag-pipeline
+   ```
+
+2. **Configure Ollama for remote access** (if using Docker):
+   
+   Edit `ollama/docker-compose.yml` to bind to all interfaces:
+   ```yaml
+   services:
+     ollama:
+       ports:
+         - "0.0.0.0:11434:11434"  # Bind to all interfaces
+   ```
+
+   Then start Ollama:
+   ```bash
+   cd ollama
+   docker-compose up -d
+   docker exec -it ollama ollama pull embeddinggemma
+   docker exec -it ollama ollama pull qwen2.5:3b
+   ```
+
+3. **Configure the backend** to use the remote Ollama endpoint:
+   
+   Create a `.env` file in the `backend/` directory:
+   ```bash
+   cd ../backend
+   cp .env.example .env
+   ```
+   
+   Edit `.env` to use the server's IP address:
+   ```env
+   OLLAMA_ENDPOINT=http://<server-ip>:11434
+   ```
+
+4. **Start the backend**:
+   ```bash
+   docker-compose up -d
+   ```
+
+5. **Configure the GUI** to connect to the backend API:
+   
+   The `docker-compose.yml` already sets `VITE_API_URL=http://localhost:8000`, which works when the GUI and backend are on the same machine. For a remote backend, update the `gui/.env` file:
+   ```bash
+   cd ../gui
+   echo "VITE_API_URL=http://<backend-ip>:8000" > .env
+   npm run build
+   ```
+   
+   Then deploy the built files (e.g., via nginx) or run the development server:
+   ```bash
+   npm run dev -- --host 0.0.0.0 --port 5173
+   ```
+
+#### Scenario 2: Distributed Setup (Ollama, Backend, GUI on Separate Machines)
+
+For maximum flexibility, run each service on a dedicated machine.
+
+**Machine A: Ollama Server**
+1. Install Ollama (native or Docker)
+2. Pull required models:
+   ```bash
+   ollama pull embeddinggemma
+   ollama pull qwen2.5:3b
+   ```
+3. If using Docker, configure `0.0.0.0:11434:11434` in `docker-compose.yml`
+4. Note the machine's IP address: `OLLAMA_SERVER_IP`
+
+**Machine B: Backend Server**
+1. Copy the repository
+2. Create `backend/.env`:
+   ```env
+   OLLAMA_ENDPOINT=http://<OLLAMA_SERVER_IP>:11434
+   ```
+3. Start the backend (Docker or local):
+   ```bash
+   # Docker
+   docker-compose up -d backend
+   
+   # Or local
+   uvicorn backend.main:app --host 0.0.0.0 --port 8000
+   ```
+4. Note the machine's IP address: `BACKEND_SERVER_IP`
+
+**Machine C: GUI Server**
+1. Copy the repository
+2. Configure the GUI to connect to the remote backend:
+   ```bash
+   cd gui
+   echo "VITE_API_URL=http://<BACKEND_SERVER_IP>:8000" > .env
+   npm run dev -- --host 0.0.0.0 --port 5173
+   ```
+
+### Firewall/Network Requirements
+
+- **Ollama port (11434)**: Must be open between backend and Ollama machines
+- **Backend port (8000)**: Must be open between GUI and backend machines
+- **GUI port (5173)**: Must be open for browser access (or use a reverse proxy like nginx)
+
+Example `ufw` rules on Linux:
+```bash
+# Allow Ollama from backend machine only
+ufw allow from <backend-ip> to any port 11434
+
+# Allow backend from GUI machine only
+ufw allow from <gui-ip> to any port 8000
+
+# Allow GUI from anywhere (or restrict to your IP)
+ufw allow 5173
+```
+
+### Testing the Remote Setup
+
+1. **Verify Ollama is accessible**:
+   ```bash
+   curl http://<ollama-server-ip>:11434/api/tags
+   # Should return list of models
+   ```
+
+2. **Verify backend is accessible**:
+   ```bash
+   curl http://<backend-server-ip>:8000/api/health
+   # Should return {"status":"healthy"}
+   ```
+
+3. **Test GUI connectivity**:
+   - Open browser to `http://<gui-server-ip>:5173`
+   - Try a sample query to verify full pipeline works
+
+### Running Phase 5 with Remote Ollama
+
+When running `phase5_end_to_end.py` with Ollama on a remote machine:
+
+```bash
+# Activate virtual environment
+.venv\Scripts\activate  # Windows
+source .venv/bin/activate  # macOS/Linux
+
+# Run with --ollama_endpoint pointing to remote server
+python experiments/phase5_end_to_end.py \
+  --ollama_endpoint http://<OLLAMA_SERVER_IP>:11434 \
+  --data_dir data \
+  --dataset data/evaluation_queries.jsonl \
+  --out_dir data
+```
+
+The `--ollama_endpoint` flag overrides the default `http://localhost:11434` and sets the endpoint for:
+- Embedding generation (`OllamaEmbedder`)
+- Answer generation (`OllamaGenerator`)
+- Model readiness checks (`OllamaClient.ensure_ready`)
+
+All components respect the `Config.load()` precedence:
+1. `--ollama_endpoint` flag → `overrides={"ollama_endpoint": "..."}`
+2. `OLLAMA_ENDPOINT` environment variable
+3. Default `http://localhost:11434`
+
+### Troubleshooting
+
+**Ollama not reachable from backend**
+- Verify Ollama is running: `curl http://<ollama-ip>:11434/api/tags`
+- Check firewall rules
+- Ensure Ollama is bound to `0.0.0.0` (not just `localhost`)
+
+**Backend not reachable from GUI**
+- Check backend logs: `docker-compose logs backend`
+- Verify CORS is enabled (it is by default in `backend/main.py`)
+- Test with `curl http://<backend-ip>:8000/api/models`
+
+**Phase 5 fails with connection errors**
+- Verify Ollama endpoint: `python -c "from src.ollama_client import OllamaClient; c = OllamaClient(endpoint='http://<ip>:11434'); c.ensure_ready(['embeddinggemma', 'qwen2.5:3b'])"`
+- Check that the models exist: `curl http://<ollama-ip>:11434/api/tags`
