@@ -324,6 +324,51 @@
         "executionId": "73fb28e2-83db-484a-b150-200a41c54c42",
         "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
         "timestamp": 1794562004663
+      },
+      {
+        "executionId": "1100c0a6-a643-445d-bab4-fafb81091c08",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794572635161
+      }
+    ],
+    "11. Phase 4 — Retrieval strategy and reranker comparison": [
+      {
+        "executionId": "1100c0a6-a643-445d-bab4-fafb81091c08",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794572635369
+      }
+    ],
+    "12. Checkpoint — Phase 4 complete": [
+      {
+        "executionId": "1100c0a6-a643-445d-bab4-fafb81091c08",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794572635749
+      }
+    ],
+    "13.1 Implement the Ollama generator": [
+      {
+        "executionId": "cc81c3e8-2310-475b-a77d-6bbbbcb6963a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794572865006
+      },
+      {
+        "executionId": "cc81c3e8-2310-475b-a77d-6bbbbcb6963a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794573127518
+      }
+    ],
+    "13.3 Build and run `experiments/phase5_end_to_end.py` (Phase 5 deliverable)": [
+      {
+        "executionId": "cc81c3e8-2310-475b-a77d-6bbbbcb6963a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794573407124
+      }
+    ],
+    "13. Phase 5 — Full local RAG app and answer evaluation": [
+      {
+        "executionId": "cc81c3e8-2310-475b-a77d-6bbbbcb6963a",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1794573407224
       }
     ]
   }

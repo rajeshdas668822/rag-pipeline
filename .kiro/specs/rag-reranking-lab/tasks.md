@@ -156,7 +156,7 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
 - [x] 10. Checkpoint — Phase 3 complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 11. Phase 4 — Retrieval strategy and reranker comparison
+- [x] 11. Phase 4 — Retrieval strategy and reranker comparison
   - [x] 11.1 Implement the BM25 retriever
     - Implement `src/bm25_retriever.py` with `BM25Retriever` behind the shared `Retriever` interface; rank via `rank-bm25`, returning a ranked list of 1..k (k in 1..1000) and reporting `latency_ms`
     - _Requirements: 12.2_
@@ -175,7 +175,7 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
   - [ ]* 11.6 Write unit tests for the LLM reranker with a mocked client
     - Cover 0–3 parsing, the unparseable→score-0 + `parse_failed=True` path, and descending ordering over received candidates
     - _Requirements: 13.2, 13.3, 13.4_
-  - [ ] 11.7 Build and run `experiments/phase4_retrieval_comparison.py` (Phase 4 deliverable)
+  - [x] 11.7 Build and run `experiments/phase4_retrieval_comparison.py` (Phase 4 deliverable)
     - Compare exactly the five configurations (dense no-rerank, BM25 no-rerank, dense + cross-encoder, hybrid no-rerank, hybrid + cross-encoder) over the identical labelled question set and identical candidate set for configs sharing a retrieval stage, recording Recall@5, Recall@50, Precision@5, MRR@10, NDCG@5 each; on a failing config record the config + affected question, exclude it, and continue
     - Compare the cross-encoder vs the LLM reranker over the same candidate set and questions, recording NDCG@5, MRR@10, pre-rerank Recall@50, reranking latency (ms), peak memory, number of model evaluations, and top-5 ranking consistency across ≥3 repeated runs, treating the LLM reranker as experimental
     - Run the script to produce the comparison report
@@ -187,18 +187,18 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
     - **Supplementary Property: FAISS matches the NumPy reference**
     - **Validates: Requirements 16.3** — FAISS top-k ordering matches NumPy for ≥99% of positions with per-document scores within 0.0001; `@skipif` FAISS not installed
 
-- [ ] 12. Checkpoint — Phase 4 complete
+- [x] 12. Checkpoint — Phase 4 complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 13. Phase 5 — Full local RAG app and answer evaluation
-  - [ ] 13.1 Implement the Ollama generator
+- [x] 13. Phase 5 — Full local RAG app and answer evaluation
+  - [x] 13.1 Implement the Ollama generator
     - Implement `src/ollama_generator.py` with `OllamaGenerator`, `GenerationResult`, and `GenerationError`; build a context+query prompt instructing the model to answer only from context and cite supporting document IDs, call the Ollama chat API, and return an answer with citations drawn only from supplied chunks
     - Return "no context available" without calling the API on empty chunks; return "cannot be determined from the context" when context lacks the answer; raise `GenerationError` on 60s timeout/failure with no fabricated answer
     - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5, 14.6, 17.4_
   - [ ]* 13.2 Write unit tests for the generator with a mocked client
     - Cover the empty-chunk short-circuit, insufficient-context refusal, citation mapping to supplied chunks, and the timeout error
     - _Requirements: 14.2, 14.4, 14.5, 14.6_
-  - [ ] 13.3 Build and run `experiments/phase5_end_to_end.py` (Phase 5 deliverable)
+  - [x] 13.3 Build and run `experiments/phase5_end_to_end.py` (Phase 5 deliverable)
     - Wire the full local pipeline: `DocumentLoader` → `Chunker` → `OllamaEmbedder` → retriever (dense/hybrid) → `CrossEncoderReranker` → `OllamaGenerator` → `Evaluation`, running entirely on the local machine
     - Answer each test question twice (baseline vs reranked retrieval) and report side by side answer correctness, faithfulness, context relevance, citation accuracy, and latency in seconds, plus the retrieval metrics per configuration; on a failing stage record the stage + question and continue; after all questions identify the best-performing configuration
     - Run the script to produce the end-to-end report
