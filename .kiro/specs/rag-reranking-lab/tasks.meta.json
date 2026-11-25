@@ -370,6 +370,25 @@
         "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
         "timestamp": 1794573407224
       }
+    ],
+    "14. Checkpoint — Phase 5 complete": [
+      {
+        "executionId": "98b3b75f-2a2f-4c35-8759-52cd878a21fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580811242
+      },
+      {
+        "executionId": "98b3b75f-2a2f-4c35-8759-52cd878a21fe",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580818619
+      }
+    ],
+    "15. Optional live-Ollama integration tests (stretch)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580897216
+      }
     ]
   }
 }

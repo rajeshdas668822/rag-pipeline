@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / cached
+﻿# Byte-compiled / optimized / cached
 __pycache__/
 *.py[cod]
 *$py.class
@@ -48,3 +48,5 @@ data/reports/
 # Local model caches
 .cache/
 models/
+# Node modules
+node_modules/

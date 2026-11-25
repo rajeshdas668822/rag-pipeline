@@ -207,10 +207,10 @@ Tasks marked with `*` are optional. Optional tasks cover unit/property/integrati
     - When `Config.use_ragas=True`, compute Ragas answer-quality metrics in addition to the manual assessment in `phase5_end_to_end.py`, leaving the manual path as the default when Ragas is disabled
     - _Requirements: 15.4_
 
-- [ ] 14. Checkpoint — Phase 5 complete
+- [x] 14. Checkpoint — Phase 5 complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ]* 15. Optional live-Ollama integration tests (stretch)
+- [-]* 15. Optional live-Ollama integration tests (stretch)
   - Add integration tests for the embedder, generator, and LLM reranker that exercise the real local Ollama instance, guarded by an environment flag and a live-endpoint reachability check, skipped automatically when the endpoint is unreachable (requires pulling `embeddinggemma` and the instruct model first)
   - _Requirements: 4.1, 14.1, 13.1, 17.5_
 

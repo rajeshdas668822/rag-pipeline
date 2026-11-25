@@ -1,0 +1,664 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "Create new Vite + React project in `gui/` directory": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905053
+      },
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580939489
+      },
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795582651736
+      }
+    ],
+    "Configure TypeScript with strict mode": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905269
+      },
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795582674763
+      }
+    ],
+    "Set up Tailwind CSS with dark mode support": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905443
+      }
+    ],
+    "Configure basic ESLint/Prettier rules matching project standards": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905502
+      }
+    ],
+    "Create initial directory structure (`src/components`, `src/hooks`, `src/lib`, `src/types`)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905618
+      }
+    ],
+    "Set up `package.json` with dependencies:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905694
+      }
+    ],
+    "Configure Vite proxy for Ollama API (localhost:11434)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905754
+      }
+    ],
+    "Set up `vite.config.ts` with path aliases": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905857
+      }
+    ],
+    "Create `src/types/rag.ts` matching Python `rag_types.py`:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905908
+      }
+    ],
+    "Create `src/types/gui.ts`:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580905957
+      }
+    ],
+    "Export types from `src/types/index.ts`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906005
+      }
+    ],
+    "Create `src/lib/ollamaClient.ts` with functions:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906057
+      }
+    ],
+    "Implement error handling for connection failures": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906152
+      }
+    ],
+    "Add timeout support (configurable, default 30s)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906197
+      }
+    ],
+    "Create `src/lib/ragService.ts` to orchestrate RAG pipeline:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906243
+      }
+    ],
+    "Implement metrics calculation (recall@k, precision@k, ndcg@k, mrr)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906300
+      }
+    ],
+    "Handle loading states and partial failures": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906346
+      }
+    ],
+    "Create `src/store/configStore.ts` with Zustand:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906404
+      }
+    ],
+    "Implement localStorage persistence": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906459
+      }
+    ],
+    "Add validation and default values": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906535
+      }
+    ],
+    "Create `src/lib/dataLoader.ts`:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906601
+      }
+    ],
+    "Implement error handling for missing files": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906654
+      }
+    ],
+    "`src/components/layout/AppLayout.tsx` - main layout with sidebar + main area": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906703
+      }
+    ],
+    "`src/components/layout/Sidebar.tsx` - configuration panel": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906750
+      }
+    ],
+    "`src/components/layout/TopBar.tsx` - title, model selector, clear/reset buttons": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906797
+      }
+    ],
+    "`src/components/layout/StatusBar.tsx` - connection status, metrics summary": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906845
+      }
+    ],
+    "`src/components/query/QueryInput.tsx` - text input with submit/clear": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906935
+      }
+    ],
+    "`src/components/query/QueryHistory.tsx` - recent queries list": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580906978
+      }
+    ],
+    "`src/components/query/ConfigurationPanel.tsx` - strategy, reranking, top-K controls": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907030
+      }
+    ],
+    "`src/components/results/RetrievalResultItem.tsx` - single result card": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907086
+      }
+    ],
+    "`src/components/results/RetrievalResultsList.tsx` - list of retrieved documents": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907149
+      }
+    ],
+    "`src/components/results/ChunkViewer.tsx` - modal to view full chunk text": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907207
+      }
+    ],
+    "`src/components/answer/AnswerDisplay.tsx` - rendered answer with citations": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907255
+      }
+    ],
+    "`src/components/answer/AnswerMetrics.tsx` - recall@5, precision@5, NDCG@5, MRR": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907308
+      }
+    ],
+    "`src/components/comparison/SideBySideComparison.tsx` - baseline vs reranked panels": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907357
+      }
+    ],
+    "`src/components/comparison/ResultDiffIndicator.tsx` - rank change arrows": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907407
+      }
+    ],
+    "`src/components/comparison/ComparisonMetrics.tsx` - delta metrics": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907458
+      }
+    ],
+    "`src/components/metrics/MetricsBar.tsx` - horizontal metrics visualization": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907509
+      }
+    ],
+    "`src/components/metrics/PerQueryTable.tsx` - detailed per-query results table": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907607
+      }
+    ],
+    "`src/components/metrics/SummaryMetrics.tsx` - batch summary statistics": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907652
+      }
+    ],
+    "Create `src/hooks/useQuery.ts`:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907693
+      }
+    ],
+    "Implement debouncing for input": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907740
+      }
+    ],
+    "Auto-execute on Enter key": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907792
+      }
+    ],
+    "Create `src/hooks/useRAGPipeline.ts`:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907840
+      }
+    ],
+    "Implement abort signal for cancellation": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907885
+      }
+    ],
+    "Create `src/hooks/useComparison.ts`:": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907935
+      }
+    ],
+    "Optimize to skip redundant calls": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580907977
+      }
+    ],
+    "Implement `mapRetrievalResultsWithText()` - merge retrieval results with chunk text": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908023
+      }
+    ],
+    "Handle missing chunks gracefully (show warning, use placeholder)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908069
+      }
+    ],
+    "Create `mapRerankResults()` - format reranking output": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908112
+      }
+    ],
+    "Implement `extractCitations(answerText)` - find [doc_id] references": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908156
+      }
+    ],
+    "Implement `highlightCitations()` - make citations clickable": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908202
+      }
+    ],
+    "Implement `checkInsufficientContext()` - detect error responses": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908245
+      }
+    ],
+    "Implement `calculateRecallAtK(results, relevantDocs, k)`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908292
+      }
+    ],
+    "Implement `calculatePrecisionAtK(results, relevantDocs, k)`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908340
+      }
+    ],
+    "Implement `calculateNDCGAtK(results, relevantDocs, k)`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908390
+      }
+    ],
+    "Implement `calculateMRR(results, relevantDocs)`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908435
+      }
+    ],
+    "Implement comparison mode toggle": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908479
+      }
+    ],
+    "Create side-by-side layout component": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908523
+      }
+    ],
+    "Add visual indicators for rank changes (↑↓→)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908634
+      }
+    ],
+    "Sync scrolling between panels": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908685
+      }
+    ],
+    "Implement `prepareComparisonData()` - format both runs for display": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908728
+      }
+    ],
+    "Calculate and display metric deltas": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908774
+      }
+    ],
+    "Show document overlap statistics": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908823
+      }
+    ],
+    "Create `src/components/evaluation/LoadEvaluationButton.tsx`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908868
+      }
+    ],
+    "Implement progress indicator for batch loading": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908918
+      }
+    ],
+    "Show loaded query count": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580908978
+      }
+    ],
+    "Create `src/components/evaluation/BatchRunButton.tsx`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909061
+      }
+    ],
+    "Implement sequential execution with progress": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909107
+      }
+    ],
+    "Add batch cancel option": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909154
+      }
+    ],
+    "Implement summary statistics calculation": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909202
+      }
+    ],
+    "Create evaluation results export (JSON)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909254
+      }
+    ],
+    "Add per-query table with expandable details": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909295
+      }
+    ],
+    "Implement skeleton loaders for results": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909344
+      }
+    ],
+    "Add progress indicators for Ollama API calls": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909453
+      }
+    ],
+    "Show partial results as they arrive (streaming if possible)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909503
+      }
+    ],
+    "Create `src/components/errors/OllamaConnectionError.tsx`": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909592
+      }
+    ],
+    "Implement retry logic for failed requests": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909650
+      }
+    ],
+    "Add helpful error messages with troubleshooting steps": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909696
+      }
+    ],
+    "Add toast notifications for key events": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909740
+      }
+    ],
+    "Implement undo for recent actions": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909787
+      }
+    ],
+    "Add keyboard shortcuts (Enter to submit, ESC to close)": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909827
+      }
+    ],
+    "Test RAG service functions": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909874
+      }
+    ],
+    "Test metrics calculations": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909923
+      }
+    ],
+    "Test data loading functions": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580909970
+      }
+    ],
+    "Test UI components in isolation": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580910020
+      }
+    ],
+    "Test event handlers": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580910068
+      }
+    ],
+    "Test error states": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580910116
+      }
+    ],
+    "Update `README.md` with GUI usage instructions": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580910162
+      }
+    ],
+    "Document configuration options": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580910216
+      }
+    ],
+    "Add troubleshooting section": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580910262
+      }
+    ],
+    "Create user guide for common tasks": [
+      {
+        "executionId": "05325773-5c06-4936-bb1d-6c07e2a3de6b",
+        "chatSessionId": "sess_16f5bf9c-3504-4edc-857a-0e6bd320771a",
+        "timestamp": 1795580910310
+      }
+    ]
+  }
+}

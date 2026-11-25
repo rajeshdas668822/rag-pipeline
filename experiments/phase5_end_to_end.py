@@ -366,9 +366,11 @@ def main() -> int:
     p.add_argument("--skip_manifest_check", action="store_true",
                    help="Do not abort when the corpus differs from the one the labels were drafted on")
     p.add_argument("--no_cache", action="store_true", help="Bypass the on-disk embedding cache")
+    p.add_argument("--ollama_endpoint", type=str, default="http://localhost:11434",
+                   help="Ollama endpoint URL")
     args = p.parse_args()
 
-    config = Config.load()
+    config = Config.load(overrides={"ollama_endpoint": args.ollama_endpoint})
 
     try:
         stages = build_pipeline(
